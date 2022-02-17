@@ -15,7 +15,7 @@ const CharacterDetails = () => {
     const searchData = async () => {
       setIsLoading(true);
       const response = await axios.get(
-        `http://localhost:4000/character?id=${id}`
+        `https://marvel-backend-ph.herokuapp.com/character?id=${id}`
       );
       setData(response.data);
       setIsLoading(false);

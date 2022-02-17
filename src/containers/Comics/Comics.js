@@ -14,7 +14,7 @@ const Comics = ({ search }) => {
     const searchData = async () => {
       setIsLoading(true);
       const response = await axios.get(
-        `http://localhost:4000/comics?page=${actualPage}&title=${search}`
+        `https://marvel-backend-ph.herokuapp.com/comics?page=${actualPage}&title=${search}`
       );
       setNbElement(response.data.count);
       setData(response.data.results);
