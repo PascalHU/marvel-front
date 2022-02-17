@@ -1,0 +1,41 @@
+@import url("../../App.css");
+
+.character-card {
+  display: flex;
+  flex-direction: column;
+  width: 290px;
+  height: 600px;
+  text-decoration: none;
+  color: black;
+}
+.character-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+.img-not-available-left {
+  object-position: left;
+}
+.img-not-available-right {
+  object-position: right;
+}
+.character-detail span {
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: 20px;
+}
+.character-detail p {
+  margin-top: 10px;
+  font-family: "Roboto";
+  font-size: 16px;
+  line-height: 18px;
+  height: 126px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.character-detail p::-webkit-scrollbar {
+  display: none;
+}

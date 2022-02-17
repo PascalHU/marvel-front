@@ -1,0 +1,14 @@
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  font-size: 16px;
+  border-top: 1px gray solid;
+}
+
+footer a {
+  text-decoration: none;
+  color: black;
+}

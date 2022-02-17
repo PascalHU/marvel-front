@@ -1,0 +1,17 @@
+.comics-page .page {
+  max-height: 80px;
+  line-height: 20px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.comics-page .page::-webkit-scrollbar {
+  display: none;
+}
+.comics-page-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 50px;
+}

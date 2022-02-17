@@ -1,0 +1,25 @@
+@import url("../../App.css");
+
+.characters {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.characters-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.characters span {
+  color: black;
+}
+.page {
+  align-self: center;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 116px;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  padding: 20px 0;
+}

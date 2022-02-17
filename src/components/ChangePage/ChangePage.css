@@ -1,0 +1,14 @@
+.red {
+  color: red;
+}
+.black {
+  color: black;
+}
+.page-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
