@@ -1,6 +1,5 @@
 // import npm
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Cookies from "js-cookie";
 import { useState } from "react";
 
 // import css
