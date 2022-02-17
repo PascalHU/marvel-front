@@ -1,9 +1,8 @@
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/img/logo_marvel.svg";
-const Header = ({ setSearch, searchBar, setSearchBar }) => {
+const Header = ({ setSearch }) => {
   const navigate = useNavigate();
-  setSearchBar(true);
 
   return (
     <header>
@@ -14,14 +13,12 @@ const Header = ({ setSearch, searchBar, setSearchBar }) => {
           alt="Marvel logo"
           onClick={() => navigate("/")}
         />
-        {searchBar && (
-          <input
-            type="text"
-            onChange={(event) => {
-              setSearch(event.target.value);
-            }}
-          />
-        )}
+        <input
+          type="text"
+          onChange={(event) => {
+            setSearch(event.target.value);
+          }}
+        />
         <nav>
           <span onClick={() => navigate("/")}>Personnages</span>
           <span onClick={() => navigate("/comics")}>Comics</span>

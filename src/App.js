@@ -19,14 +19,9 @@ import Favorites from "./containers/Favorites/Favorites";
 
 function App() {
   const [search, setSearch] = useState("");
-  const [searchBar, setSearchBar] = useState(true);
   return (
     <Router>
-      <Header
-        setSearch={setSearch}
-        searchBar={searchBar}
-        setSearchBar={setSearchBar}
-      />
+      <Header setSearch={setSearch} />
       <Routes>
         <Route path="/" element={<Characters search={search} />} />
         <Route path="/character/" element={<CharacterDetails />} />

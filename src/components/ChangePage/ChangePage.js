@@ -4,7 +4,9 @@ const ChangePage = ({ page, actualPage, setActualPage, maxPage }) => {
   return (
     <>
       <button
-        className={actualPage === 1 ? "page-btn hide" : "page-btn "}
+        className={
+          actualPage === 1 || !actualPage ? "page-btn hide" : "page-btn "
+        }
         onClick={() => setActualPage(actualPage - 1)}
       >
         &lt;
@@ -22,7 +24,9 @@ const ChangePage = ({ page, actualPage, setActualPage, maxPage }) => {
         );
       })}
       <button
-        className={actualPage === maxPage ? "page-btn hide" : "page-btn "}
+        className={
+          actualPage === maxPage || !maxPage ? "page-btn hide" : "page-btn "
+        }
         onClick={() => setActualPage(actualPage + 1)}
       >
         &gt;
