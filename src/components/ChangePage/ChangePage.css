@@ -22,4 +22,10 @@
   line-height: 20px;
   height: 100px;
   overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.page-btn-list p::-webkit-scrollbar {
+  display: none;
 }
