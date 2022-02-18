@@ -25,14 +25,14 @@ library.add(faHeartCrack, faHeart);
 function App() {
   const [search, setSearch] = useState("");
   const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || null
+    JSON.parse(sessionStorage.getItem("user")) || null
   );
 
   const isLogged = (user) => {
     if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
+      sessionStorage.setItem("user", JSON.stringify(user));
     } else {
-      localStorage.removeItem("user");
+      sessionStorage.removeItem("user");
     }
     setUser(user);
   };
@@ -47,7 +47,7 @@ function App() {
         idToChange: id,
       }
     );
-    localStorage.setItem("user", JSON.stringify(response.data));
+
     setUser(response.data);
   };
 
