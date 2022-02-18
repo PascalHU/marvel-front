@@ -38,12 +38,15 @@ function App() {
   };
 
   const changeFavorite = async (addOrRemove, page, id) => {
-    const response = await axios.post(`http://localhost:4000/favorite`, {
-      addOrRemove: addOrRemove,
-      userId: user._id,
-      type: page,
-      idToChange: id,
-    });
+    const response = await axios.post(
+      `https://marvel-backend-ph.herokuapp.com/favorite`,
+      {
+        addOrRemove: addOrRemove,
+        userId: user._id,
+        type: page,
+        idToChange: id,
+      }
+    );
     localStorage.setItem("user", JSON.stringify(response.data));
     setUser(response.data);
   };
