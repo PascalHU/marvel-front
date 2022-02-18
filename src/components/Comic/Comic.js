@@ -17,12 +17,14 @@ const Comic = ({ comic, user, changeFavorite }) => {
           src={comic.thumbnail.path + "." + comic.thumbnail.extension}
           alt={comic.title}
         />
-        <FavoriteButton
-          id={comic._id}
-          user={user}
-          changeFavorite={changeFavorite}
-          page={"comic"}
-        />
+        {user && (
+          <FavoriteButton
+            id={comic._id}
+            user={user}
+            changeFavorite={changeFavorite}
+            page={"comic"}
+          />
+        )}
       </div>
       <div className="comic-card-title-description">
         <h3>{comic.title}</h3>

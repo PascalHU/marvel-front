@@ -38,7 +38,7 @@ const ComicDetails = ({ changeFavorite, user }) => {
                 id={id}
                 user={user}
                 changeFavorite={changeFavorite}
-                page="character"
+                page="comic"
               />
             )}
           </div>
