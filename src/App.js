@@ -1,7 +1,6 @@
 // import npm
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-
 // import css
 import "./reset.css";
 import "./App.css";
@@ -15,17 +14,84 @@ import Characters from "./containers/Characters/Characters";
 import CharacterDetails from "./containers/CharacterDetails/CharacterDetails";
 import Comics from "./containers/Comics/Comics";
 import Favorites from "./containers/Favorites/Favorites";
+import SignInUp from "./containers/SignInUp/SignInUp";
+import ComicDetail from "./containers/ComicDetails/ComicDetails";
+// import font awesome
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faHeartCrack, faHeart } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+library.add(faHeartCrack, faHeart);
 
 function App() {
   const [search, setSearch] = useState("");
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("user")) || null
+  );
+
+  const isLogged = (user) => {
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    } else {
+      localStorage.removeItem("user");
+    }
+    setUser(user);
+  };
+
+  const changeFavorite = async (addOrRemove, page, id) => {
+    const response = await axios.post(`http://localhost:4000/favorite`, {
+      addOrRemove: addOrRemove,
+      userId: user._id,
+      type: page,
+      idToChange: id,
+    });
+    localStorage.setItem("user", JSON.stringify(response.data));
+    setUser(response.data);
+  };
+
   return (
     <Router>
-      <Header setSearch={setSearch} />
+      <Header
+        setSearch={setSearch}
+        isLogged={isLogged}
+        user={user}
+        search={search}
+      />
       <Routes>
-        <Route path="/" element={<Characters search={search} />} />
-        <Route path="/character/" element={<CharacterDetails />} />
-        <Route path="/comics" element={<Comics search={search} />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route
+          path="/"
+          element={
+            <Characters
+              search={search}
+              user={user}
+              changeFavorite={changeFavorite}
+            />
+          }
+        />
+        <Route
+          path="/character/"
+          element={
+            <CharacterDetails changeFavorite={changeFavorite} user={user} />
+          }
+        />
+        <Route
+          path="/comics"
+          element={
+            <Comics
+              search={search}
+              user={user}
+              changeFavorite={changeFavorite}
+            />
+          }
+        />
+        <Route
+          path="/comic"
+          element={<ComicDetail changeFavorite={changeFavorite} user={user} />}
+        />
+        <Route
+          path="/favorites"
+          element={<Favorites user={user} changeFavorite={changeFavorite} />}
+        />
+        <Route path="/sign" element={<SignInUp isLogged={isLogged} />} />
       </Routes>
       <Footer />
     </Router>

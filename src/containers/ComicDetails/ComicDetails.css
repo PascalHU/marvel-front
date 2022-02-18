@@ -1,18 +1,18 @@
-.character-info {
+.comic-info {
   margin-top: 50px;
 }
-.character-page h2 {
+.comic-page h2 {
   font-size: 32px;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
   margin-bottom: 30px;
   margin-left: 20px;
 }
-.specific-character-info {
+.specific-comic-info {
   display: flex;
   margin-bottom: 50px;
 }
-.specific-character-info .img {
+.specific-comic-info .img {
   min-width: 400px;
   padding-left: 50px;
   flex: 1.5;
@@ -53,19 +53,4 @@
 }
 .spe-char-line span:first-child {
   font-weight: bold;
-}
-.comics-list {
-  display: flex;
-  justify-content: flex-start;
-  gap: 15px;
-  margin-bottom: 50px;
-  width: 100%;
-
-  overflow-x: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.comics-list::-webkit-scrollbar {
-  display: none;
 }

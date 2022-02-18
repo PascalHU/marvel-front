@@ -1,9 +1,13 @@
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/img/logo_marvel.svg";
-const Header = ({ setSearch }) => {
+const Header = ({ setSearch, isLogged, user, search }) => {
   const navigate = useNavigate();
 
+  const disconnect = () => {
+    isLogged("");
+    navigate("/");
+  };
   return (
     <header>
       <div className="header container">
@@ -14,16 +18,44 @@ const Header = ({ setSearch }) => {
           onClick={() => navigate("/")}
         />
         <input
+          className="searchbar"
           type="text"
           onChange={(event) => {
             setSearch(event.target.value);
           }}
+          value={search}
+          placeholder="Rechercher ... "
         />
         <nav>
-          <span onClick={() => navigate("/")}>Personnages</span>
-          <span onClick={() => navigate("/comics")}>Comics</span>
-          <span>Favoris</span>
-          <span>Signin</span>
+          <span
+            onClick={() => {
+              document.getElementById("searchbar");
+              setSearch("");
+              navigate("/");
+            }}
+          >
+            Personnages
+          </span>
+          <span
+            onClick={() => {
+              setSearch("");
+              navigate("/comics");
+            }}
+          >
+            Comics
+          </span>
+          <span
+            onClick={() => (user ? navigate("/favorites") : navigate("/sign"))}
+          >
+            Favoris
+          </span>
+          {user ? (
+            <span className="disconnect-btn" onClick={disconnect}>
+              Se deconnecter
+            </span>
+          ) : (
+            <span onClick={() => navigate("/sign")}>Se connecter</span>
+          )}
         </nav>
       </div>
     </header>

@@ -1,11 +1,18 @@
 .comic-card {
-  min-width: 225px;
+  width: 290px;
+  height: 600px;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 50px;
 }
-.comic-card-img {
-  width: 225px;
+.comic-card .img {
+  width: 290px;
+  height: 400px;
+  position: relative;
 }
-.comic-card-img img {
+.comic-card .img img {
   width: 100%;
+  height: 100%;
   border-radius: 15px;
 }
 .comic-card-title-description {
@@ -19,10 +26,10 @@
 .comic-card-title-description h3 {
   font-size: 20px;
   font-weight: bold;
-  width: 225px;
+  width: 290px;
 }
 .comic-card-title-description p {
-  width: 225px;
+  width: 290px;
   font-size: 16px;
   line-height: 20px;
   height: 200px;

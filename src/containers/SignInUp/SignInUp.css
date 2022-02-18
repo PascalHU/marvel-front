@@ -1,0 +1,52 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  background-color: lightgray;
+  height: 70vh;
+}
+.login-page h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+.form {
+  background-color: white;
+  padding: 60px;
+  border-radius: 15px;
+  height: fit-content;
+}
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-line {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form-line input {
+  padding: 10px;
+  border: none;
+  border-bottom: lightgray 1px solid;
+}
+.form-line input:focus {
+  outline: none;
+}
+.form-line .login-btn {
+  border: none;
+  background-color: orange;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+}
+.changeForm {
+  margin-top: 15px;
+  color: gray;
+  cursor: pointer;
+}
+.error-msg span {
+  color: red;
+}

@@ -12,3 +12,14 @@
 .hide {
   display: none;
 }
+.page-btn-list {
+  padding: 0 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-btn-list p {
+  line-height: 20px;
+  height: 100px;
+  overflow-y: scroll;
+}

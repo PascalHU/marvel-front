@@ -1,0 +1,23 @@
+.favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.favorite-category h2 {
+  margin: 50px 0 50px 30px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  color: #ed1d24;
+}
+
+.no-favorite {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h2 span {
+  font-size: 52px;
+}

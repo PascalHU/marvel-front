@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Character from "../../components/Character/Character";
 import ChangePage from "../../components/ChangePage/ChangePage";
 
-const Characters = ({ search }) => {
+const Characters = ({ search, user, changeFavorite }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
   const [actualPage, setActualPage] = useState(1);
@@ -43,7 +43,14 @@ const Characters = ({ search }) => {
       </div>
       <div className="characters-list">
         {data.map((data) => {
-          return <Character key={data._id} data={data} />;
+          return (
+            <Character
+              key={data._id}
+              data={data}
+              user={user}
+              changeFavorite={changeFavorite}
+            />
+          );
         })}
       </div>
     </div>

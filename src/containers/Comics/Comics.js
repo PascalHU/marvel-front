@@ -3,7 +3,7 @@ import Comic from "../../components/Comic/Comic";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ChangePage from "../../components/ChangePage/ChangePage";
-const Comics = ({ search }) => {
+const Comics = ({ search, user, changeFavorite }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
   const [actualPage, setActualPage] = useState(1);
@@ -41,7 +41,14 @@ const Comics = ({ search }) => {
       </div>
       <div className="comics-page-list">
         {data.map((comic) => {
-          return <Comic key={comic._id} comic={comic} />;
+          return (
+            <Comic
+              key={comic._id}
+              comic={comic}
+              user={user}
+              changeFavorite={changeFavorite}
+            />
+          );
         })}
       </div>
     </div>

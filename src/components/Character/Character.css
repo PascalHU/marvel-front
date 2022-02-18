@@ -1,12 +1,9 @@
-@import url("../../App.css");
-
 .character-card {
-  display: flex;
-  flex-direction: column;
   width: 290px;
   height: 600px;
   text-decoration: none;
   color: black;
+  margin-bottom: 50px;
 }
 .character-card img {
   width: 100%;
@@ -14,6 +11,9 @@
   object-fit: cover;
   border-radius: 15px;
   margin-bottom: 10px;
+}
+.character-card .img {
+  position: relative;
 }
 .img-not-available-left {
   object-position: left;

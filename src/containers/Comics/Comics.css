@@ -4,6 +4,8 @@
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  background-color: white;
+  z-index: 999999;
 }
 
 .comics-page .page::-webkit-scrollbar {
@@ -12,6 +14,5 @@
 .comics-page-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 50px;
+  gap: 9px;
 }

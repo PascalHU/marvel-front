@@ -1,5 +1,3 @@
-@import url("../../App.css");
-
 header {
   width: 100%;
   position: sticky;
@@ -10,6 +8,7 @@ header {
   border-bottom: 1px solid gray;
   font-family: "Roboto", sans-serif;
   font-size: 20px;
+  z-index: 99999;
 }
 .header {
   padding: 20px 0px;
@@ -34,4 +33,16 @@ header {
 }
 .header nav span:last-child {
   margin-left: 40px;
+}
+.header nav .disconnect-btn {
+  background-color: black;
+}
+.header .searchbar {
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-bottom: #ed1d24 1px solid;
+}
+.header .searchbar:focus {
+  outline: none;
 }
