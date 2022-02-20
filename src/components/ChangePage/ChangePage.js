@@ -1,41 +1,21 @@
 import "./ChangePage.css";
+import ReactPaginate from "react-paginate";
 
-const ChangePage = ({ page, actualPage, setActualPage, maxPage }) => {
+const ChangePage = ({ actualPage, setActualPage, maxPage }) => {
+  const handlePageClick = (event) => {
+    setActualPage(event.selected + 1);
+    console.log(actualPage);
+  };
   return (
-    <div className="page-btn-list">
-      <p>
-        <button
-          className={
-            actualPage === 1 || !actualPage ? "page-btn hide" : "page-btn "
-          }
-          onClick={() => setActualPage(actualPage - 1)}
-        >
-          &lt;
-        </button>
-
-        {page.map((index) => {
-          return (
-            <button
-              key={index}
-              className={`page-btn ${index === actualPage ? "red" : "black"}`}
-              onClick={(event) => setActualPage(Number(event.target.value))}
-              value={index}
-            >
-              {index}
-            </button>
-          );
-        })}
-
-        <button
-          className={
-            actualPage === maxPage || !maxPage ? "page-btn hide" : "page-btn "
-          }
-          onClick={() => setActualPage(actualPage + 1)}
-        >
-          &gt;
-        </button>
-      </p>
-    </div>
+    <ReactPaginate
+      previousLabel={"<"}
+      nextLabel={">"}
+      pageCount={maxPage}
+      pageRangeDisplayed={5}
+      onPageChange={handlePageClick}
+      containerClassName={"pagination"}
+      activeClassName={"active"}
+    />
   );
 };
 export default ChangePage;

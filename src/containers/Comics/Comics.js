@@ -12,7 +12,6 @@ const Comics = ({ search, user, changeFavorite }) => {
 
   useEffect(() => {
     const searchData = async () => {
-      setIsLoading(true);
       const response = await axios.get(
         `https://marvel-backend-ph.herokuapp.com/comics?page=${actualPage}&title=${search}`
       );
@@ -33,7 +32,6 @@ const Comics = ({ search, user, changeFavorite }) => {
     <div className="comics-page container">
       <div className="page">
         <ChangePage
-          page={page}
           setActualPage={setActualPage}
           actualPage={actualPage}
           maxPage={maxPage}
