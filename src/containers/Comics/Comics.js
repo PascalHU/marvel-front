@@ -3,7 +3,7 @@ import Comic from "../../components/Comic/Comic";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ChangePage from "../../components/ChangePage/ChangePage";
-const Comics = ({ search, user, changeFavorite }) => {
+const Comics = ({ search, setSearch, user, changeFavorite }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
   const [actualPage, setActualPage] = useState(1);
@@ -13,7 +13,9 @@ const Comics = ({ search, user, changeFavorite }) => {
   useEffect(() => {
     const searchData = async () => {
       const response = await axios.get(
-        `https://marvel-backend-ph.herokuapp.com/comics?page=${actualPage}&title=${search}`
+        `https://marvel-backend-ph.herokuapp.com/comics?page=${actualPage}&title=${encodeURIComponent(
+          search
+        )}`
       );
       setNbElement(response.data.count);
       setData(response.data.results);
@@ -30,13 +32,15 @@ const Comics = ({ search, user, changeFavorite }) => {
     <span>Loading ...</span>
   ) : (
     <div className="comics-page container">
-      <div className="page">
-        <ChangePage
-          setActualPage={setActualPage}
-          actualPage={actualPage}
-          maxPage={maxPage}
-        />
-      </div>
+      <input
+        className="searchbar"
+        type="text"
+        onChange={(event) => {
+          setSearch(event.target.value);
+        }}
+        value={search}
+        placeholder="Rechercher ... "
+      />
       <div className="comics-page-list">
         {data.map((comic) => {
           return (
@@ -48,6 +52,13 @@ const Comics = ({ search, user, changeFavorite }) => {
             />
           );
         })}
+      </div>
+      <div className="page">
+        <ChangePage
+          setActualPage={setActualPage}
+          actualPage={actualPage}
+          maxPage={maxPage}
+        />
       </div>
     </div>
   );

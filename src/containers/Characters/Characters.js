@@ -5,7 +5,7 @@ import ChangePage from "../../components/ChangePage/ChangePage";
 import Character from "../../components/Character/Character";
 import "./Characters.css";
 
-const Characters = ({ search, user, changeFavorite }) => {
+const Characters = ({ search, setSearch, user, changeFavorite }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
   const [actualPage, setActualPage] = useState(1);
@@ -14,7 +14,9 @@ const Characters = ({ search, user, changeFavorite }) => {
   useEffect(() => {
     const searchData = async () => {
       const response = await axios.get(
-        `https://marvel-backend-ph.herokuapp.com/characters?page=${actualPage}&name=${search}`
+        `https://marvel-backend-ph.herokuapp.com/characters?page=${actualPage}&name=${encodeURIComponent(
+          search
+        )}`
       );
       setData(response.data.results);
       setMaxPage(Math.ceil(Number(response.data.count) / 100));
@@ -27,13 +29,15 @@ const Characters = ({ search, user, changeFavorite }) => {
     <span>Loading ...</span>
   ) : (
     <div className="characters container">
-      <div className="page">
-        <ChangePage
-          actualPage={actualPage}
-          setActualPage={setActualPage}
-          maxPage={maxPage}
-        />
-      </div>
+      <input
+        className="searchbar"
+        type="text"
+        onChange={(event) => {
+          setSearch(event.target.value);
+        }}
+        value={search}
+        placeholder="Rechercher ... "
+      />
       <div className="characters-list">
         {data.map((data) => {
           return (
@@ -45,6 +49,13 @@ const Characters = ({ search, user, changeFavorite }) => {
             />
           );
         })}
+      </div>
+      <div className="page">
+        <ChangePage
+          actualPage={actualPage}
+          setActualPage={setActualPage}
+          maxPage={maxPage}
+        />
       </div>
     </div>
   );

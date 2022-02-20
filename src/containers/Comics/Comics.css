@@ -3,3 +3,19 @@
   flex-wrap: wrap;
   gap: 9px;
 }
+.comics-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.comics-page .searchbar {
+  padding-bottom: 10px;
+  width: 100%;
+  border: none;
+  border-bottom: #ed1d24 1px solid;
+  margin-bottom: 30px;
+}
+
+.comics-page .searchbar:focus {
+  outline: none;
+}

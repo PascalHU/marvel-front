@@ -11,3 +11,12 @@
 .characters span {
   color: black;
 }
+.characters .searchbar {
+  padding: 10px;
+  border: none;
+  border-bottom: #ed1d24 1px solid;
+  margin-bottom: 30px;
+}
+.characters .searchbar:focus {
+  outline: none;
+}

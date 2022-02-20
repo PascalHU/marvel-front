@@ -4,7 +4,9 @@ import ReactPaginate from "react-paginate";
 const ChangePage = ({ actualPage, setActualPage, maxPage }) => {
   const handlePageClick = (event) => {
     setActualPage(event.selected + 1);
-    console.log(actualPage);
+    //scroll back to top of page
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   };
   return (
     <ReactPaginate

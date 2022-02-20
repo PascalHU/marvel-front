@@ -55,15 +55,16 @@ function App() {
     <Router>
       <Header
         setSearch={setSearch}
+        search={search}
         isLogged={isLogged}
         user={user}
-        search={search}
       />
       <Routes>
         <Route
           path="/"
           element={
             <Characters
+              setSearch={setSearch}
               search={search}
               user={user}
               changeFavorite={changeFavorite}
@@ -80,6 +81,7 @@ function App() {
           path="/comics"
           element={
             <Comics
+              setSearch={setSearch}
               search={search}
               user={user}
               changeFavorite={changeFavorite}
