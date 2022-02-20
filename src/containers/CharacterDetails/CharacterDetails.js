@@ -14,7 +14,6 @@ const CharacterDetails = ({ changeFavorite, user }) => {
 
   useEffect(() => {
     const searchData = async () => {
-      setIsLoading(true);
       const response = await axios.get(
         `https://marvel-backend-ph.herokuapp.com/character?id=${id}`
       );
