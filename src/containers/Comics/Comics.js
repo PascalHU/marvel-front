@@ -3,12 +3,13 @@ import Comic from "../../components/Comic/Comic";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ChangePage from "../../components/ChangePage/ChangePage";
-const Comics = ({ search, setSearch, user, changeFavorite }) => {
+// import { Autocomplete } from "@mui/material";
+
+const Comics = ({ search, setSearch, user, changeFavorite, comicsList }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
   const [actualPage, setActualPage] = useState(1);
   const [nbElement, setNbElement] = useState();
-  const page = [];
 
   useEffect(() => {
     const searchData = async () => {
@@ -25,13 +26,26 @@ const Comics = ({ search, setSearch, user, changeFavorite }) => {
   }, [actualPage, search]);
 
   const maxPage = Math.ceil(nbElement / 100);
-  for (let i = 1; i <= maxPage; i++) {
-    page.push(i);
-  }
+
   return isLoading ? (
     <span>Loading ...</span>
   ) : (
     <div className="comics-page container">
+      {/* <Autocomplete
+        options={comicsList}
+        getOptionLabel={(opt) => opt.title}
+        renderInput={(params) => (
+          <div ref={params.InputProps.ref}>
+            <input
+              type="text"
+              {...params.inputProps}
+              placeholder="Autocomplete searchbar (not working due to special case)"
+              autoFocus={true}
+              className="searchbar"
+            />
+          </div>
+        )}
+      /> */}
       <input
         className="searchbar"
         type="text"

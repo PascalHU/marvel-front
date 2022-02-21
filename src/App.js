@@ -1,6 +1,6 @@
 // import npm
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import css
 import "./reset.css";
 import "./App.css";
@@ -23,10 +23,31 @@ import axios from "axios";
 library.add(faHeartCrack, faHeart);
 
 function App() {
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading1, setIsLoading1] = useState(true);
+
   const [search, setSearch] = useState("");
   const [user, setUser] = useState(
     JSON.parse(sessionStorage.getItem("user")) || null
   );
+  // const [comicsList, setComicsList] = useState([]);
+  // const [charactersList, setCharactersList] = useState([]);
+
+  // useEffect(() => {
+  //   const searchComics = async () => {
+  //     const response = await axios.get("http://localhost:4000/allcomics");
+  //     setComicsList(response.data);
+  //     setIsLoading1(false);
+  //   };
+
+  //   const searchCharacters = async () => {
+  //     const response = await axios.get("http://localhost:4000/allcharacters");
+  //     setCharactersList(response.data);
+  //     setIsLoading(false);
+  //   };
+  //   searchComics();
+  //   searchCharacters();
+  // }, []);
 
   const isLogged = (user) => {
     if (user) {
@@ -36,7 +57,6 @@ function App() {
     }
     setUser(user);
   };
-
   const changeFavorite = async (addOrRemove, page, id) => {
     const response = await axios.post(
       `https://marvel-backend-ph.herokuapp.com/favorite`,
@@ -68,6 +88,7 @@ function App() {
               search={search}
               user={user}
               changeFavorite={changeFavorite}
+              // charactersList={charactersList}
             />
           }
         />
@@ -85,6 +106,7 @@ function App() {
               search={search}
               user={user}
               changeFavorite={changeFavorite}
+              // comicsList={comicsList}
             />
           }
         />
